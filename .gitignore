@@ -10,19 +10,20 @@ build/
 .pytest_cache/
 
 # Airflow
-logs/
+logs/dag_processor_manager/
+logs/scheduler/
 airflow.db
 airflow.cfg
 unittests.cfg
 webserver_config.py
 
 # Docker
-.env
+# .env file is now tracked for project setup
 
-# Data files
-*.csv
-*.xlsx
-data/
+# Data files - Keep sample data tracked
+# *.csv
+# *.xlsx
+# data/
 
 # IDE
 .vscode/

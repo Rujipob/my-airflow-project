@@ -1,0 +1,32 @@
+[2025-10-23T17:04:39.905+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ckan_data_etl.transform manual__2025-10-23T17:04:12+00:00 [queued]>
+[2025-10-23T17:04:39.920+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ckan_data_etl.transform manual__2025-10-23T17:04:12+00:00 [queued]>
+[2025-10-23T17:04:39.921+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2025-10-23T17:04:40.018+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): transform> on 2025-10-23 17:04:12+00:00
+[2025-10-23T17:04:40.028+0000] {standard_task_runner.py:57} INFO - Started process 1160 to run task
+[2025-10-23T17:04:40.033+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'ckan_data_etl', 'transform', 'manual__2025-10-23T17:04:12+00:00', '--job-id', '754', '--raw', '--subdir', 'DAGS_FOLDER/crypto_etl_dag.py', '--cfg-path', '/tmp/tmpent4223i']
+[2025-10-23T17:04:40.035+0000] {standard_task_runner.py:85} INFO - Job 754: Subtask transform
+[2025-10-23T17:04:40.124+0000] {task_command.py:416} INFO - Running <TaskInstance: ckan_data_etl.transform manual__2025-10-23T17:04:12+00:00 [running]> on host 056dd0d0c4ba
+[2025-10-23T17:04:40.278+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ckan_data_etl' AIRFLOW_CTX_TASK_ID='transform' AIRFLOW_CTX_EXECUTION_DATE='2025-10-23T17:04:12+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-23T17:04:12+00:00'
+[2025-10-23T17:04:40.328+0000] {logging_mixin.py:154} INFO - Transform - Retrieved 63 records from extract task
+[2025-10-23T17:04:40.345+0000] {logging_mixin.py:154} INFO - DataFrame shape: (63, 16)
+[2025-10-23T17:04:40.387+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/crypto_etl_dag.py", line 35, in transform_data
+    df.to_csv(output_path, index=False, encoding='utf-8-sig')
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 3772, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/formats/format.py", line 1186, in to_csv
+    csv_formatter.save()
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/formats/csvs.py", line 240, in save
+    with get_handle(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+PermissionError: [Errno 13] Permission denied: '/opt/airflow/data/ckan_data.csv'
+[2025-10-23T17:04:40.430+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=ckan_data_etl, task_id=transform, execution_date=20251023T170412, start_date=20251023T170439, end_date=20251023T170440
+[2025-10-23T17:04:40.470+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 754 for task transform ([Errno 13] Permission denied: '/opt/airflow/data/ckan_data.csv'; 1160)
+[2025-10-23T17:04:40.534+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-10-23T17:04:40.595+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

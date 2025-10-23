@@ -1,0 +1,3 @@
+[2025-10-23T17:20:07.203+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ckan_data_etl.extract scheduled__2024-11-11T00:00:00+00:00 [queued]>
+[2025-10-23T17:20:07.261+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ckan_data_etl.extract scheduled__2024-11-11T00:00:00+00:00 [queued]>
+[2025-10-23T17:20:07.264+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2

@@ -1,0 +1,7 @@
+[2025-10-23T17:04:50.898+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ckan_data_etl.transform scheduled__2024-11-01T00:00:00+00:00 [queued]>
+[2025-10-23T17:04:50.992+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ckan_data_etl.transform scheduled__2024-11-01T00:00:00+00:00 [queued]>
+[2025-10-23T17:04:50.998+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2025-10-23T17:04:51.048+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): transform> on 2024-11-01 00:00:00+00:00
+[2025-10-23T17:04:51.064+0000] {standard_task_runner.py:57} INFO - Started process 1215 to run task
+[2025-10-23T17:04:51.081+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'ckan_data_etl', 'transform', 'scheduled__2024-11-01T00:00:00+00:00', '--job-id', '771', '--raw', '--subdir', 'DAGS_FOLDER/crypto_etl_dag.py', '--cfg-path', '/tmp/tmp3nnnaqrw']
+[2025-10-23T17:04:51.085+0000] {standard_task_runner.py:85} INFO - Job 771: Subtask transform

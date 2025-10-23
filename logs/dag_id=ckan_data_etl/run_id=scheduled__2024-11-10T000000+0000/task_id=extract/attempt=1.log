@@ -1,0 +1,1 @@
+[2025-10-23T17:04:51.068+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ckan_data_etl.extract scheduled__2024-11-10T00:00:00+00:00 [queued]>
