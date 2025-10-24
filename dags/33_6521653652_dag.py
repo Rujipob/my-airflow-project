@@ -7,14 +7,17 @@ from sqlalchemy import create_engine
 from datetime import datetime
 
 # ฟังก์ชันสำหรับดึงข้อมูล
+# ข้อมูลจาก: ข้อมูลรายงานสถิติจำนวนผู้เข้าชมสวนสัตว์ ปีงบประมาณ 2568
+# Dataset URL: https://data.go.th/dataset/zoo-visitors2568
+# องค์กร: องค์การสวนสัตว์แห่งประเทศไทย ในพระบรมราชูปถัมภ์
 def extract_data(**kwargs):
-    url = "https://opend.data.go.th/get-ckan/datastore_search"  # API endpoint ที่ถูกต้อง
+    url = "https://opend.data.go.th/get-ckan/datastore_search"  # CKAN API endpoint
     params = {
-        'resource_id': 'a7ce8130-e941-4b46-901c-9fb12ca1d855',  # Zoo Visitors 2568 (ปีงบประมาณ 2568)
+        'resource_id': 'a7ce8130-e941-4b46-901c-9fb12ca1d855',  # Resource ID: Zoo Visitors 2568
         'limit': 1000  # ดึงข้อมูลสูงสุด 1000 records
     }
     headers = {
-        'api-key': 'iFWOIOiQvAKwxrdzQtHEctOZyQvuoSgw'
+        'api-key': 'iFWOIOiQvAKwxrdzQtHEctOZyQvuoSgw'  # API key สำหรับ Thailand Open Data
     }
     response = requests.get(url, params=params, headers=headers)
     data = response.json()
@@ -61,7 +64,7 @@ default_args = {
 dag = DAG(
     'ckan_data_etl',
     default_args=default_args,
-    description='ETL DAG for CKAN API data from opend.data.go.th',
+    description='ETL Pipeline: ข้อมูลสถิติผู้เข้าชมสวนสัตว์ 2568 (Zoo Visitors 2568) | Source: https://data.go.th/dataset/zoo-visitors2568',
     schedule_interval=timedelta(days=1),
 )
 
