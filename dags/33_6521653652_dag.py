@@ -8,7 +8,7 @@ from datetime import datetime
 
 # ฟังก์ชันสำหรับดึงข้อมูล
 def extract_data(**kwargs):
-    url = "https://opend.data.go.th/get-ckan/datastore_search"
+    url = "https://opend.data.go.th/get-ckan/datastore_search"  # API endpoint ที่ถูกต้อง
     params = {
         'resource_id': 'a7ce8130-e941-4b46-901c-9fb12ca1d855',  # Zoo Visitors 2568 (ปีงบประมาณ 2568)
         'limit': 1000  # ดึงข้อมูลสูงสุด 1000 records
